@@ -55,7 +55,10 @@
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
           <div class="form-inline">
-            <span class="mr-md-auto"><b>{{product_count}}</b> Items found </span>
+            <span class="mr-md-auto"
+              ><b>{{product_count}}</b> {% if product_count <= 1 %} Item found {% else %} Items
+              found {% endif %}
+            </span>
             {% include 'includes/alerts.html' %}
           </div>
         </header>
@@ -83,7 +86,8 @@
           </div>
           {% endfor %} {% else %}
           <div>
-            <h3>No result found. Please try again.</h3>
+            <p>No result found. Please try again.</p>
+            <a href="{% url 'store' %}"></a>
           </div>
           {% endif %}
           <!-- col.// -->
